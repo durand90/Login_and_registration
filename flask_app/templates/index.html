@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Register</h1>
+    <div class="container">
+        <form action="/users/create" method="post">
+            <div>
+                <label for="first_name">First Name</label>
+                <input type="text" name="first_name" id="first_name">
+                {% for message in get_flashed_messages(category_filter=['err_users_first_name']) %}
+                <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+            <div>
+                <label for="last_name">Last Name</label>
+                <input type="text" name="last_name" id="last_name">
+                {% for message in get_flashed_messages(category_filter=['err_users_last_name']) %}
+                <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email">
+                {% for message in get_flashed_messages(category_filter=['err_users_email']) %}
+                <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+            <div>
+                <label for="pw">Password</label>
+                <input type="text" name="pw" id="pw">
+                {% for message in get_flashed_messages(category_filter=['err_users_pw']) %}
+                <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+            <div>
+                <label for="confirm_pw">Confirm Password</label>
+                <input type="text" name="confirm_pw" id="confirm_pw">
+                {% for message in get_flashed_messages(category_filter=['err_users_confirm_pw']) %}
+                <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+            <button>Register</button>
+        </form>
+
+        <div class="login">
+            <h1>Login</h1>
+            <form action="/user/login" method="post">
+                <div>
+                    <label for="email" method="post">Email</label>
+                    <input type="text" name="email" id="email">
+                    {% for message in get_flashed_messages(category_filter=['err_users_email_login']) %}
+                    <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+                <div>
+                    <label for="pw">Password</label>
+                    <input type="text" name="pw" id="pw">
+                    {% for message in get_flashed_messages(category_filter=['err_users_pw_login']) %}
+                    <p>{{ message }}</p>
+                    {% endfor %}
+                </div>  
+                <button>Login</button>
+            </form>
+
+        </div>
+    </div>
+</body>
+
+</html>
